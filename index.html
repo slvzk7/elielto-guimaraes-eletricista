@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elielto Guimaraes | Eletricista e Energia Solar</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- ESTILOS GERAIS --- */
+        :root {
+            --primary: #003366; /* Azul Profissional */
+            --secondary: #ffcc00; /* Amarelo Solar */
+            --dark: #1a1a1a;
+            --light: #f4f4f4;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--dark);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- CABEÇALHO --- */
+        header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i { color: var(--secondary); }
+
+        nav ul { display: flex; gap: 20px; }
+        nav a { font-weight: 500; transition: var(--transition); font-size: 0.9rem; }
+        nav a:hover { color: var(--secondary); }
+        
+        .btn-header {
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+        .btn-header:hover { background: #e6b800; }
+
+        /* --- BANNER PRINCIPAL (HERO) --- */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0, 51, 102, 0.85), rgba(0, 51, 102, 0.7)), url('https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 60px;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 { font-size: 2.8rem; margin-bottom: 1rem; text-transform: uppercase; line-height: 1.2; }
+        .hero-content span { color: var(--secondary); }
+        .hero-content p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+        .btn-cta {
+            padding: 1rem 2.5rem;
+            background: var(--secondary);
+            color: var(--primary);
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 5px;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-cta:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(255, 204, 0, 0.4); }
+
+        /* --- SERVIÇOS --- */
+        .services { padding: 5rem 5%; background: var(--light); }
+        .section-title { text-align: center; margin-bottom: 3rem; font-size: 2.2rem; color: var(--primary); }
+        .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--secondary); margin: 10px auto 0; }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            border-bottom: 4px solid transparent;
+        }
+
+        .service-card:hover { transform: translateY(-10px); border-bottom: 4px solid var(--secondary); }
+
+        .icon-box { font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; }
+        .service-card h3 { margin-bottom: 1rem; font-size: 1.4rem; }
+        .service-card ul { list-style: disc; padding-left: 20px; margin-top: 10px; color: #555; }
+
+        /* --- SOBRE --- */
+        .about { padding: 5rem 5%; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 3rem; max-width: 1200px; margin: 0 auto; }
+        .about-text { flex: 1; min-width: 300px; }
+        .about-text h2 { font-size: 2rem; margin-bottom: 1.5rem; color: var(--primary); }
+        .about-text p { margin-bottom: 1rem; font-size: 1.1rem; }
+        
+        .qualities { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+        .quality-item { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+        .quality-item i { color: var(--secondary); }
+
+        /* --- CTA FINAL --- */
+        .cta-section { background: var(--primary); color: var(--white); text-align: center; padding: 4rem 2rem; }
+        .cta-section h2 { margin-bottom: 1rem; }
+
+        /* --- FOOTER --- */
+        footer { background: #0b1c2e; color: #aaa; padding: 2rem 5%; text-align: center; font-size: 0.9rem; }
+        footer strong { color: var(--white); }
+
+        /* --- BOTÃO FLUTUANTE --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 2000;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); background: #128C7E; }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* --- RESPONSIVO --- */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2rem; }
+            nav { display: none; } 
+            .logo { font-size: 1.1rem; }
+            .about { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fas fa-bolt"></i>
+            ELIELTO GUIMARAES
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="https://wa.me/5562995640232?text=Ol%C3%A1%2C%20vi%20seu%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" class="btn-header">Orçamento</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Energia Solar e <br><span>Soluções Elétricas</span></h1>
+            <p>Especialista em instalação e manutenção elétrica residencial, predial e sistemas fotovoltaicos.</p>
+            
+            <a href="https://wa.me/5562995640232?text=Ol%C3%A1%2C%20vi%20seu%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." class="btn-cta" target="_blank">
+                <i class="fab fa-whatsapp"></i> Falar com Elielto
+            </a>
+        </div>
+    </section>
+
+    <section id="servicos" class="services">
+        <h2 class="section-title">Serviços Realizados</h2>
+        <div class="services-grid">
+            
+            <div class="service-card">
+                <div class="icon-box"><i class="fas fa-solar-panel"></i></div>
+                <h3>Placas Solares</h3>
+                <p>Garanta a eficiência máxima da sua energia solar.</p>
+                <ul>
+                    <li>Instalação de Sistemas Solares</li>
+                    <li>Limpeza Técnica de Placas</li>
+                    <li>Manutenção Preventiva</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="icon-box"><i class="fas fa-home"></i></div>
+                <h3>Residencial & Predial</h3>
+                <p>Serviço completo para casas e condomínios com segurança total.</p>
+                <ul>
+                    <li>Padrão de Entrada</li>
+                    <li>Fiação e Quadros</li>
+                    <li>Instalação de Chuveiros e Iluminação</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="icon-box"><i class="fas fa-industry"></i></div>
+                <h3>Comercial & Galpões</h3>
+                <p>Infraestrutura elétrica robusta para o seu negócio.</p>
+                <ul>
+                    <li>Elétrica para Galpões</li>
+                    <li>Projetos para Lojas</li>
+                    <li>Adequação de Cargas</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="sobre" class="about">
+        <div class="about-text">
+            <h2>Experiência e Confiança</h2>
+            <p>Olá, sou <strong>Elielto Guimaraes</strong>. Trabalho como eletricista autônomo oferecendo serviços de alta qualidade técnica e segurança. </p>
+            <p>Seja para montar o sistema elétrico de um galpão, realizar a limpeza das suas placas solares ou resolver problemas elétricos na sua residência, você pode contar comigo. Trabalho com honestidade, preço justo e sem "gambiarras".</p>
+            
+            <div class="qualities">
+                <div class="quality-item"><i class="fas fa-check-circle"></i> Eletricista Qualificado</div>
+                <div class="quality-item"><i class="fas fa-check-circle"></i> Atendimento Rápido</div>
+                <div class="quality-item"><i class="fas fa-check-circle"></i> Segurança em 1º lugar</div>
+                <div class="quality-item"><i class="fas fa-check-circle"></i> Especialista Solar</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="cta-section">
+        <h2>Precisa de um orçamento?</h2>
+        <p>Entre em contato pelo WhatsApp e agende uma visita técnica.</p>
+        <br>
+        <a href="https://wa.me/5562995640232?text=Ol%C3%A1%2C%20vi%20seu%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." class="btn-cta" style="background: white; color: var(--primary);" target="_blank">
+            <i class="fab fa-whatsapp"></i> Chamar no WhatsApp (62) 99564-0232
+        </a>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 <strong>Elielto Guimaraes</strong> Soluções Elétricas.</p>
+        <p>Atendendo Goiânia e Região (DDD 62).</p>
+    </footer>
+
+    <a href="https://wa.me/5562995640232?text=Ol%C3%A1%2C%20vi%20seu%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
