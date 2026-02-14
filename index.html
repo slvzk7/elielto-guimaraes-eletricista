@@ -3,233 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elielto Guimarães | Soluções Elétricas & Solar</title>
+    <title>Elielto Guimarães | Eletricista em Caldas Novas</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* --- VARIÁVEIS E CONFIGURAÇÕES --- */
+        /* --- CONFIGURAÇÕES GERAIS (TEMA DARK) --- */
         :root {
-            --azul-escuro: #0a192f;
-            --azul-vibrante: #0056b3;
-            --dourado: #ffc107;
+            --azul-neon: #00A8E8; /* Azul Elétrico Chamativo */
+            --azul-escuro: #003459;
+            --preto-fundo: #0a0a0a; /* Preto quase absoluto */
+            --cinza-escuro: #121212;
             --branco: #ffffff;
-            --cinza-claro: #f8f9fa;
-            --texto: #333333;
-            --sombra: 0 10px 30px rgba(0,0,0,0.1);
+            --cinza-texto: #cccccc;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            color: var(--texto);
-            background-color: var(--branco);
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--preto-fundo);
+            color: var(--branco);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--azul-escuro); }
-        a { text-decoration: none; transition: 0.3s; }
-        img { max-width: 100%; display: block; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: -1px; }
+        
+        /* Destaque em Azul */
+        .text-blue { color: var(--azul-neon); }
 
-        /* --- CABEÇALHO --- */
+        /* --- HEADER --- */
         header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 5%;
+            background: rgba(10, 10, 10, 0.95);
+            padding: 1.2rem 5%;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            border-bottom: 2px solid var(--azul-neon);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            backdrop-filter: blur(5px);
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--azul-escuro);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-transform: uppercase;
-            letter-spacing: -0.5px;
-        }
-        .logo i { color: var(--dourado); font-size: 1.8rem; }
+        .logo { font-size: 1.4rem; font-weight: 800; color: white; display: flex; align-items: center; gap: 10px; }
+        .logo i { color: var(--azul-neon); font-size: 1.8rem; }
 
         nav ul { display: flex; gap: 25px; list-style: none; }
-        nav a { color: var(--texto); font-weight: 500; font-size: 0.95rem; }
-        nav a:hover { color: var(--azul-vibrante); }
-        
-        .btn-header {
-            background: var(--azul-vibrante);
-            color: white !important;
-            padding: 0.6rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(0, 86, 179, 0.3);
-        }
-        .btn-header:hover { background: var(--azul-escuro); transform: translateY(-2px); }
+        nav a { color: white; font-weight: 600; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+        nav a:hover { color: var(--azul-neon); }
 
-        /* --- HERO (CAPA) --- */
+        /* Esconde menu no celular */
+        @media(max-width: 768px) { nav { display: none; } }
+
+        /* --- HERO (CAPA IMPACTANTE) --- */
         .hero {
-            position: relative;
             height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 0 10%;
-            background: linear-gradient(to right, rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.4)), url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1549144511-30c5172078a8?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Efeito Parallax */
-            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
         }
 
-        .hero-content { max-width: 600px; animation: fadeInUp 1s ease-out; }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            color: white;
+        .hero::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 100px;
+            background: linear-gradient(to top, var(--preto-fundo), transparent);
         }
-        .hero span { color: var(--dourado); }
-        
-        .hero p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; font-weight: 300; }
 
-        .btn-hero {
+        .hero-content h1 { font-size: 3.5rem; margin-bottom: 1rem; line-height: 1.1; }
+        .hero-content p { font-size: 1.3rem; color: var(--cinza-texto); margin-bottom: 2rem; max-width: 700px; margin: 0 auto 2rem; }
+
+        .btn-principal {
+            background: var(--azul-neon);
+            color: var(--preto-fundo);
             padding: 1rem 2.5rem;
-            background: var(--dourado);
-            color: var(--azul-escuro);
-            font-weight: 700;
-            border-radius: 5px;
             font-size: 1.1rem;
+            font-weight: 800;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: 0.3s;
+            box-shadow: 0 0 20px rgba(0, 168, 232, 0.4);
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 5px 20px rgba(255, 193, 7, 0.4);
         }
-        .btn-hero:hover { transform: translateY(-3px); background: #ffca2c; }
-
-        /* --- DIFERENCIAIS (ÍCONES) --- */
-        .features {
-            padding: 4rem 10%;
-            background: var(--branco);
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: -50px; /* Sobrepor o Hero */
-            position: relative;
-            z-index: 2;
-        }
-
-        .feature-box {
+        .btn-principal:hover {
             background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: var(--sombra);
-            text-align: center;
-            transition: 0.3s;
-            border-bottom: 3px solid var(--dourado);
+            color: var(--azul-neon);
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 168, 232, 0.8);
         }
-        .feature-box:hover { transform: translateY(-10px); }
-        .feature-box i { font-size: 2.5rem; color: var(--azul-vibrante); margin-bottom: 1rem; }
-        .feature-box h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
-        .feature-box p { font-size: 0.9rem; color: #666; }
 
-        /* --- SOBRE COM FOTO --- */
-        .about {
-            padding: 6rem 10%;
+        /* --- INFO BAR (Caldas Novas) --- */
+        .info-bar {
+            background: var(--azul-escuro);
             display: flex;
-            align-items: center;
-            gap: 4rem;
-            background: var(--cinza-claro);
+            justify-content: space-around;
+            padding: 2rem 5%;
+            flex-wrap: wrap;
+            gap: 20px;
+            text-align: center;
         }
-        
-        .about-img { flex: 1; position: relative; }
-        .about-img img { border-radius: 10px; box-shadow: var(--sombra); }
-        .about-img::before {
-            content: ''; position: absolute; top: -20px; left: -20px;
-            width: 100px; height: 100px; background: var(--dourado);
-            z-index: -1; border-radius: 10px;
-        }
+        .info-item i { font-size: 2rem; color: var(--azul-neon); margin-bottom: 10px; }
+        .info-item h3 { font-size: 1.2rem; }
+        .info-item p { color: #ccc; font-size: 0.9rem; }
 
-        .about-text { flex: 1; }
-        .section-subtitle { color: var(--azul-vibrante); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; }
-        .about-text h2 { font-size: 2.5rem; margin-bottom: 1.5rem; line-height: 1.2; }
-        .check-list li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; font-weight: 500; }
-        .check-list i { color: #25D366; }
+        /* --- SERVIÇOS --- */
+        .services { padding: 5rem 5%; background: var(--cinza-escuro); }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; }
+        .section-title span { border-bottom: 4px solid var(--azul-neon); }
 
-        /* --- SERVIÇOS (COM FOTOS) --- */
-        .services { padding: 6rem 10%; background: white; }
-        .title-center { text-align: center; margin-bottom: 4rem; }
-        .title-center h2 { font-size: 2.5rem; }
-        
-        .services-grid {
+        .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .service-card {
-            border-radius: 12px;
+        .card {
+            background: var(--preto-fundo);
+            border: 1px solid #333;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: var(--sombra);
-            transition: 0.3s;
-            background: white;
+            transition: 0.4s;
             position: relative;
         }
-        .service-card:hover { transform: translateY(-10px); }
-        
-        .card-img { height: 200px; overflow: hidden; }
-        .card-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .service-card:hover .card-img img { transform: scale(1.1); }
-        
-        .card-content { padding: 2rem; }
-        .card-content h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
-        .card-content p { color: #666; font-size: 0.95rem; margin-bottom: 1.5rem; }
-        .card-link { color: var(--azul-vibrante); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; }
 
-        /* --- GALERIA DE TRABALHOS --- */
-        .gallery { padding: 6rem 5%; background: var(--azul-escuro); color: white; text-align: center; }
-        .gallery h2 { color: white; margin-bottom: 3rem; }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 8px;
-            opacity: 0.8;
-            transition: 0.3s;
-        }
-        .gallery-item img:hover { opacity: 1; transform: scale(1.03); }
+        .card:hover { transform: translateY(-10px); border-color: var(--azul-neon); }
+        
+        .card img { width: 100%; height: 220px; object-fit: cover; filter: grayscale(30%); transition: 0.4s; }
+        .card:hover img { filter: grayscale(0%); }
+
+        .card-body { padding: 1.5rem; }
+        .card-body h3 { font-size: 1.5rem; margin-bottom: 0.5rem; color: white; }
+        .card-body p { color: #aaa; font-size: 0.95rem; margin-bottom: 1.5rem; }
+        
+        .btn-card { color: var(--azul-neon); font-weight: 700; text-transform: uppercase; text-decoration: none; font-size: 0.9rem; letter-spacing: 1px; }
+
+        /* --- SOBRE (IMAGEM E TEXTO) --- */
+        .about { padding: 6rem 5%; display: flex; flex-wrap: wrap; align-items: center; gap: 4rem; max-width: 1200px; margin: 0 auto; }
+        .about-img { flex: 1; min-width: 300px; position: relative; }
+        .about-img img { width: 100%; border-radius: 10px; box-shadow: -20px 20px 0 var(--azul-neon); }
+        
+        .about-text { flex: 1; min-width: 300px; }
+        .about-text h2 { font-size: 2.8rem; margin-bottom: 1.5rem; line-height: 1.1; }
+        .about-text p { margin-bottom: 1rem; color: #ccc; }
+        .checklist li { list-style: none; margin-bottom: 10px; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+        .checklist i { color: var(--azul-neon); }
 
         /* --- CTA FINAL --- */
-        .cta {
-            padding: 5rem 10%;
+        .cta-final {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1620023420857-e60d9c024503?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 5rem 2rem;
             text-align: center;
-            background: url('https://www.transparenttextures.com/patterns/cubes.png'), linear-gradient(135deg, #0056b3 0%, #003366 100%);
-            color: white;
         }
-        .cta h2 { color: white; margin-bottom: 1.5rem; }
 
         /* --- FOOTER --- */
-        footer { background: #050e1b; color: #8892b0; padding: 4rem 10% 2rem; font-size: 0.9rem; }
-        .footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; margin-bottom: 3rem; }
-        .footer-logo { color: white; font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; display: block; }
-        .footer-info p { margin-bottom: 0.5rem; }
-        .copyright { text-align: center; border-top: 1px solid #1c2d41; padding-top: 2rem; }
+        footer { background: black; padding: 3rem 5%; text-align: center; border-top: 1px solid #333; margin-top: auto; }
+        .social-icons { margin: 20px 0; }
+        .social-icons a { color: white; font-size: 1.5rem; margin: 0 10px; transition: 0.3s; }
+        .social-icons a:hover { color: var(--azul-neon); }
 
         /* --- WHATSAPP FLUTUANTE --- */
         .whatsapp-float {
@@ -238,14 +185,14 @@
             right: 30px;
             background: #25D366;
             color: white;
-            width: 65px;
-            height: 65px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 35px;
-            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
             z-index: 2000;
             transition: 0.3s;
             animation: pulse 2s infinite;
@@ -254,21 +201,15 @@
 
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         /* RESPONSIVO */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .about { flex-direction: column; padding: 4rem 5%; }
-            nav { display: none; } /* Esconde menu no mobile para simplificar */
-            .logo { font-size: 1.2rem; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .about { flex-direction: column-reverse; padding: 4rem 5%; }
+            .about-img img { box-shadow: none; border: 2px solid var(--azul-neon); }
         }
     </style>
 </head>
@@ -277,145 +218,123 @@
     <header>
         <div class="logo">
             <i class="fas fa-bolt"></i>
-            Elielto Guimarães
+            ELIELTO GUIMARÃES
         </div>
         <nav>
             <ul>
                 <li><a href="#inicio">Início</a></li>
                 <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#galeria">Galeria</a></li>
                 <li><a href="#sobre">Sobre</a></li>
             </ul>
         </nav>
-        <a href="https://wa.me/5562995640232?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento." class="btn-header" target="_blank">
+        <a href="https://wa.me/5562995640232?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento." class="btn-principal" style="padding: 0.5rem 1.5rem; font-size: 0.9rem;">
             <i class="fab fa-whatsapp"></i> Contato
         </a>
     </header>
 
     <section class="hero" id="inicio">
         <div class="hero-content">
-            <h1>Energia Solar e <br><span>Soluções Elétricas</span></h1>
-            <p>Instalação de painéis, limpeza solar especializada e manutenção elétrica completa para sua residência ou empresa.</p>
-            <a href="https://wa.me/5562995640232?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento." class="btn-hero" target="_blank">
-                Solicitar Orçamento <i class="fas fa-arrow-right"></i>
+            <h1 class="text-blue">ENERGIA &<br> <span style="color: white;">SEGURANÇA</span></h1>
+            <p>Especialista em Elétrica e Energia Solar em <strong>Caldas Novas - GO</strong>. Instalação profissional, limpeza de placas e manutenção sem gambiarras.</p>
+            <a href="https://wa.me/5562995640232?text=Ol%C3%A1%2C%20preciso%20de%20um%20eletricista%20em%20Caldas%20Novas." class="btn-principal">
+                SOLICITAR VISITA TÉCNICA
             </a>
         </div>
     </section>
 
-    <section class="features">
-        <div class="feature-box">
-            <i class="fas fa-certificate"></i>
-            <h3>Qualidade Garantida</h3>
-            <p>Serviço executado com precisão, limpeza e sem gambiarras.</p>
+    <div class="info-bar">
+        <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>Caldas Novas</h3>
+            <p>Atendimento rápido em toda a região</p>
         </div>
-        <div class="feature-box">
+        <div class="info-item">
             <i class="fas fa-bolt"></i>
-            <h3>Segurança Total</h3>
-            <p>Seguindo todas as normas técnicas de eletricidade (NR-10).</p>
+            <h3>Alta Tensão</h3>
+            <p>Especialista em Comercial e Predial</p>
         </div>
-        <div class="feature-box">
-            <i class="fas fa-dollar-sign"></i>
-            <h3>Preço Justo</h3>
-            <p>Orçamento transparente e adequado à sua necessidade.</p>
+        <div class="info-item">
+            <i class="fas fa-solar-panel"></i>
+            <h3>Energia Solar</h3>
+            <p>Limpeza e Instalação Eficiente</p>
+        </div>
+    </div>
+
+    <section class="services" id="servicos">
+        <h2 class="section-title">NOSSAS <span class="text-blue">SOLUÇÕES</span></h2>
+        
+        <div class="cards-grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2072&auto=format&fit=crop" alt="Energia Solar">
+                <div class="card-body">
+                    <h3>Limpeza de Placas</h3>
+                    <p>Mantenha a eficiência da sua geração de energia com nossa limpeza técnica especializada para Caldas Novas.</p>
+                    <a href="https://wa.me/5562995640232" class="btn-card">Pedir Orçamento <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2070&auto=format&fit=crop" alt="Eletricista">
+                <div class="card-body">
+                    <h3>Elétrica Residencial</h3>
+                    <p>Troca de fiação, instalação de chuveiros, tomadas e quadros de distribuição. Tudo nas normas.</p>
+                    <a href="https://wa.me/5562995640232" class="btn-card">Pedir Orçamento <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop" alt="Comercial">
+                <div class="card-body">
+                    <h3>Comercial & Galpões</h3>
+                    <p>Projetos robustos para lojas, hotéis e galpões. Iluminação de led, automação e infraestrutura.</p>
+                    <a href="https://wa.me/5562995640232" class="btn-card">Pedir Orçamento <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
         </div>
     </section>
 
     <section class="about" id="sobre">
-        <div class="about-img">
-            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Eletricista Profissional">
-        </div>
         <div class="about-text">
-            <span class="section-subtitle">Sobre Mim</span>
-            <h2>Experiência Técnica que gera confiança</h2>
-            <p>Olá, sou <strong>Elielto Guimarães</strong>. Como eletricista autônomo qualificado, meu objetivo é resolver seu problema elétrico com eficiência e segurança.</p>
-            <p>Especializado em limpeza e manutenção de placas solares, garanto que seu investimento gere a energia máxima. Além disso, realizo instalações completas para casas, comércios e galpões.</p>
+            <h4 class="text-blue">QUEM É ELIELTO GUIMARÃES?</h4>
+            <h2>TECNOLOGIA E CONFIANÇA PARA O SEU IMÓVEL.</h2>
+            <p>Trabalho como eletricista autônomo qualificado em <strong>Caldas Novas</strong>. Meu foco é resolver o problema do cliente com honestidade e segurança.</p>
+            <p>Seja para limpar suas placas solares ou fazer a instalação elétrica completa de um prédio, uso ferramentas de ponta e materiais de qualidade.</p>
             
-            <ul class="check-list">
-                <li><i class="fas fa-check"></i> Instalação Elétrica Completa</li>
-                <li><i class="fas fa-check"></i> Manutenção de Placas Solares</li>
-                <li><i class="fas fa-check"></i> Atendimento em Goiânia e Região</li>
+            <ul class="checklist">
+                <li><i class="fas fa-check-circle"></i> Atendimento em Caldas Novas e Região</li>
+                <li><i class="fas fa-check-circle"></i> Especialista em Sistema Solar</li>
+                <li><i class="fas fa-check-circle"></i> Orçamento Transparente</li>
             </ul>
         </div>
-    </section>
-
-    <section class="services" id="servicos">
-        <div class="title-center">
-            <span class="section-subtitle">O que eu faço</span>
-            <h2>Nossos Serviços</h2>
-        </div>
-
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="card-img">
-                    <img src="https://images.unsplash.com/photo-1592833159155-c62df1b65634?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Limpeza Solar">
-                </div>
-                <div class="card-content">
-                    <h3>Limpeza de Placas Solares</h3>
-                    <p>Aumente a eficiência da sua energia solar com uma limpeza técnica e manutenção especializada.</p>
-                    <a href="https://wa.me/5562995640232" class="card-link">Saiba Mais</a>
-                </div>
-            </div>
-
-            <div class="service-card">
-                <div class="card-img">
-                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Instalação Elétrica">
-                </div>
-                <div class="card-content">
-                    <h3>Elétrica Residencial</h3>
-                    <p>Instalação de quadros, tomadas, chuveiros e iluminação. Tudo dentro das normas de segurança.</p>
-                    <a href="https://wa.me/5562995640232" class="card-link">Saiba Mais</a>
-                </div>
-            </div>
-
-            <div class="service-card">
-                <div class="card-img">
-                    <img src="https://images.unsplash.com/photo-1565514020175-0517fd015f84?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Elétrica Comercial">
-                </div>
-                <div class="card-content">
-                    <h3>Comercial & Galpões</h3>
-                    <p>Infraestrutura robusta para empresas, montagem de sistemas para lojas e galpões industriais.</p>
-                    <a href="https://wa.me/5562995640232" class="card-link">Saiba Mais</a>
-                </div>
-            </div>
+        <div class="about-img">
+            <img src="https://images.unsplash.com/photo-1559067515-bf7d799b6d4d?q=80&w=1974&auto=format&fit=crop" alt="Eletricista Profissional">
         </div>
     </section>
 
-    <section class="gallery" id="galeria">
-        <h2>Serviços em Destaque</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Obra 1"></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1544724569-5f546fd6dd2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Obra 2"></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Obra 3"></div>
-            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1558449028-b53a39d100fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Obra 4"></div>
-        </div>
-    </section>
-
-    <section class="cta">
-        <h2>Pronto para resolver seu problema elétrico?</h2>
-        <p>Atendimento rápido e orçamento sem compromisso em Goiânia e Região.</p>
-        <br>
-        <a href="https://wa.me/5562995640232?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento." class="btn-hero" target="_blank" style="background: white; color: var(--azul-vibrante);">
-            <i class="fab fa-whatsapp"></i> Falar Agora: (62) 99564-0232
+    <section class="cta-final">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">PRECISA DE UMA VISITA?</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem;">Não arrisque com curiosos. Chame quem entende do assunto.</p>
+        <a href="https://wa.me/5562995640232?text=Ol%C3%A1%2C%20vi%20seu%20site%20e%20preciso%20de%20ajuda." class="btn-principal" style="background: white; color: var(--preto-fundo);">
+            <i class="fab fa-whatsapp"></i> Falar com Elielto Agora
         </a>
     </section>
 
     <footer>
-        <div class="footer-content">
-            <div>
-                <a href="#" class="footer-logo">Elielto Guimarães</a>
-                <p>Soluções Elétricas e Energia Solar.</p>
-            </div>
-            <div class="footer-info">
-                <p><i class="fas fa-map-marker-alt"></i> Goiânia e Região, GO</p>
-                <p><i class="fas fa-phone"></i> (62) 99564-0232</p>
-            </div>
+        <div class="logo" style="justify-content: center; margin-bottom: 1rem;">
+            <i class="fas fa-bolt"></i> ELIELTO GUIMARÃES
         </div>
-        <div class="copyright">
-            <p>&copy; 2024 Elielto Guimarães. Todos os direitos reservados.</p>
+        <p>Soluções Elétricas e Energia Solar.</p>
+        <p class="text-blue" style="font-weight: bold; margin-top: 10px;">Caldas Novas - Goiás</p>
+        
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
         </div>
+        
+        <p style="font-size: 0.8rem; color: #555; margin-top: 2rem;">&copy; 2024 Todos os direitos reservados.</p>
     </footer>
 
-    <a href="https://wa.me/5562995640232?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento." class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/5562995640232?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
